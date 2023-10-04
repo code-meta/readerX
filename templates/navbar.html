@@ -1,0 +1,126 @@
+<nav id="navbar" class="bg-white border-gray-200 dark:bg-gray-900 shadow-sm">
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative"
+  >
+    <a href="{% url "home" %}" class="flex items-center">
+      <span
+        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+        >Reader <span class="text-blue-700">X</span></span
+      >
+    </a>
+    <div>
+      <button
+        class="cursor-pointer h-full mr-5 md:absolute md:-right-10 md:top-0"
+        id="change-theme"
+      >
+        <svg
+          class="hidden w-5 h-5 text-gray-900 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 18 20"
+          id="icon-dark"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"
+          />
+        </svg>
+
+        <svg
+          class="hidden w-5 h-5 text-gray-900 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+          id="icon-light"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+          />
+        </svg>
+      </button>
+
+      <button
+        id="navbar-toggle"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="hidden w-full md:block md:w-auto" id="nav-menu">
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        <li>
+          <a
+            href="{% url "home" %}"
+            class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent {% if request.resolver_match.view_name == 'home' %}bg-blue-700 md:text-blue-700 md:dark:text-blue-500{% endif %} md:p-0 dark:text-white "
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url "blog" %}"
+            class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent {% if request.resolver_match.view_name == 'blog' %}bg-blue-700 md:text-blue-700 md:dark:text-blue-500{% endif %} md:p-0 dark:text-white "
+            >Blog</a
+          >
+        </li>
+        {% if request.user.is_authenticated %}
+        <li>
+          <a
+          href="{% url "logout" %}"
+          class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+          >Logout</a
+          >
+        </li>
+        {% else %}
+        <li>
+          <a
+            href="{% url "signup" %}"
+            class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent {% if request.resolver_match.view_name == 'signup' %}bg-blue-700 md:text-blue-700 md:dark:text-blue-500{% endif %} md:p-0 dark:text-white "
+            >Sign Up</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url "login" %}"
+            class="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent {% if request.resolver_match.view_name == 'login' %}bg-blue-700 md:text-blue-700 md:dark:text-blue-500{% endif %} md:p-0 dark:text-white "            
+            >Login</a
+          >
+        </li>
+        {% endif %}
+       
+        <li
+          class="hidden md:block w-[1px] border-l border-gray-900 dark:border-gray-500 pl-2"
+        />
+      </ul>
+    </div>
+  </div>
+</nav>

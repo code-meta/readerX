@@ -1,0 +1,23 @@
+html{
+  scroll-behavior: smooth;
+}
+
+html.dark body h1,
+html.dark body h2,
+html.dark body h3,
+html.dark body h4,
+html.dark body h5,
+html.dark body h6,
+html.dark body p {
+  color: white;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body p {
+  color: black;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "readerx",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "tw": "tailwindcss -i ./static/css/tw-input.css -o ./static/css/tw-output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
